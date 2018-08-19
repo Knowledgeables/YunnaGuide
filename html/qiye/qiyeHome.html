@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/qiye.css">
+</head>
+<body>
+<div class="qiye">
+    <img id="pager" class="pager" src="../../images/qiye/qiye002.png"/>
+    <a id="hand" class="hand003"></a>
+    <p id="toast" class="toast003">点击“我的”查看企业信息。</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    var pager = $("#pager");
+    hand.on('click', function () {
+        if (hand.hasClass("hand003") || toast.hasClass("toast003")) {
+            hand.removeClass("hand003");
+            toast.removeClass("toast003");
+            pager.attr("src", "../../images/qiye/qiye003.png");
+            hand.addClass("hand004");
+            toast.addClass("toast004");
+            toast.text("点击“企业信息”跳转界面。");
+        } else if (hand.hasClass("hand004") || toast.hasClass("toast004")) {
+            window.location.href = "qiyeInfo.html";
+        }
+    });
+    $(function () {
+        localStorage.clear();
+        var current = {title: "通过企业认证", total: "5", current: "2"};
+        bridge.startPager(current);
+    });
+
+
+</script>
+</body>
+</html>

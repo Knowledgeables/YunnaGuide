@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/jieshou.css">
+</head>
+<body>
+<div class="jieshou">
+    <img id="pager" class="pager" src="../../images/jieshou/jieshou003.png"/>
+    <a id="hand" class="hand007"></a>
+    <p id="toast" class="toast007">点击“接单”跳转到操作界面</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    var pager = $("#pager");
+    var isFirst = true;
+    var h = $(pager).height() - $(window).height();
+    hand.click(function () {
+        localStorage.setItem("last", 'faqiOrder');
+        if (hand.hasClass("hand007") || toast.hasClass("toast007")) {
+            window.location.href = "jieshouTime.html";
+        }
+    });
+    $(function () {
+        localStorage.clear();
+        var current = {title: "学习接受工单", total: "4", current: "3"};
+        bridge.startPager(current);
+    });
+</script>
+</body>
+</html>

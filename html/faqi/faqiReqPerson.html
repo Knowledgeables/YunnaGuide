@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/faqi.css">
+</head>
+<body>
+<div class="faqi">
+    <img class="pager" src="../../images/faqi/faqi05.png"/>
+    <a id="hand" class="hand005"></a>
+    <p id="toast" class="toast005">点击选择默认为自己的联系人</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    hand.click(function () {
+        if (hand.hasClass("hand005") || toast.hasClass("toast005")) {
+            localStorage.setItem("last", 'faqiReqPerson');
+            localStorage.setItem("position", '1');
+            window.history.back();
+        }
+    })
+    $(function () {
+        localStorage.clear();
+        var current = {title: "学习发起工单", total: "5", current: "4"};
+        bridge.startPager(current);
+    });
+</script>
+</body>
+</html>

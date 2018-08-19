@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/yuangong.css">
+</head>
+<body>
+<div class="yuangong">
+    <img class="pager" src="../../images/yuangong/yuangong005.png"/>
+    <a id="hand" class="hand009"></a>
+    <p id="toast" class="toast009">点击选择员工所属智能分组</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    hand.on('click', function () {
+        if (hand.hasClass("hand009") || toast.hasClass("toast009")) {
+            localStorage.setItem("last", "yuangongFunction");
+            window.history.back();
+        }
+    });
+    $(function () {
+        localStorage.clear();
+        var current = {title: "添加工作人员", total: "6", current: "5"};
+        bridge.startPager(current);
+    });
+
+</script>
+</body>
+</html>

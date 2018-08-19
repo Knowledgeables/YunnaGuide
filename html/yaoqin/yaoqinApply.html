@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/yaoqin.css">
+</head>
+<body>
+<div class="yaoqin">
+    <img class="pager" src="../../images/yaoqin/yaoqin006.png"/>
+    <a id="hand" class="hand0010"></a>
+    <p id="toast" class="toast0010">刚发起的申请，在我的申请中可以查看当前的状态。</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    hand.on('click', function () {
+        if (hand.hasClass("hand0010") || toast.hasClass("toast0010")) {
+            var current = {
+                currentTag: "邀请好友企业",
+                title1: "恭喜您",
+                title2: "发送邀请成功！",
+                message: "请在等待通过的同时回到引导界面，前往下一个教学。",
+                nextUrl: ""
+            };
+            bridge.finishCurrentPager(current);
+        }
+    });
+    $(function () {
+        localStorage.clear();
+        var current = {title: "邀请好友企业", total: "6", current: "6"};
+        bridge.startPager(current);
+    });
+</script>
+</body>
+</html>

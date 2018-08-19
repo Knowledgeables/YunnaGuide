@@ -1,0 +1,120 @@
+
+.queren {
+    width: 90%;
+    height: 90%;
+    background-size: 100% 100%;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+.queren .pager {
+    width: 100%;
+    height: 100%;
+}
+
+.gone {
+    visibility: hidden;
+}
+
+.hand001 {
+    left: 3rem;
+    top: 1rem;
+}
+
+.toast001 {
+    left: 2.5rem;
+    top: 3rem;
+
+}
+
+.hand002 {
+    left: 3rem;
+    top: 2.5rem;
+}
+
+.toast002 {
+    left: 0rem;
+    top: 5rem;
+}
+
+.hand003 {
+    left: 4rem;
+    top: 2rem;
+}
+
+.toast003 {
+    left: 0rem;
+    top: 4rem;
+}
+
+.hand004 {
+    left: 1rem;
+    top: 1rem;
+}
+
+.toast004 {
+    left: 0rem;
+    top: 5rem;
+}
+
+.hand005 {
+    left: 4rem;
+    top: 10.3rem;
+}
+
+.toast005 {
+    left: 1rem;
+    top: 8rem;
+}
+
+.hand006 {
+    left: 4rem;
+    top: 8.5rem;
+}
+
+.toast006 {
+    left: 1rem;
+    top: 7.5rem;
+}
+
+.hand007 {
+    left: 4rem;
+    top: 1rem;
+}
+
+.toast007 {
+    left: 0rem;
+    top: 3rem;
+}
+
+.hand008 {
+    left: 5rem;
+    top: 2.3rem;
+}
+
+.toast008 {
+    left: 3rem;
+    top: 3rem;
+}
+
+.hand009 {
+    left: 1rem;
+    top: 3rem;
+}
+
+.toast009 {
+    left: 1.5rem;
+    top: 5rem;
+}
+
+.hand0010 {
+    left: 4rem;
+    top: 6rem;
+}
+
+.toast0010 {
+    left: 0rem;
+    top: 4rem;
+}

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/yaoqin.css">
+</head>
+<body>
+<div class="yaoqin">
+    <img class="pager" src="../../images/yaoqin/yaoqin004.png"/>
+    <a id="hand" class="hand005"></a>
+    <p id="toast" class="toast005">输入精准的公司名称进行搜索</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    hand.on('click', function () {
+        if (hand.hasClass("hand005") || toast.hasClass("toast005")) {
+            hand.removeClass("hand005");
+            toast.removeClass("toast005");
+            hand.addClass("hand006");
+            toast.addClass("toast006");
+            toast.text("输入精准的公司名称进行搜索");
+        } else if (hand.hasClass("hand006") || toast.hasClass("toast006")) {
+            hand.removeClass("hand006");
+            toast.removeClass("toast006");
+            hand.addClass("hand007");
+            toast.addClass("toast007");
+            toast.text("点击”邀请“选择业主跳转界面。");
+        } else if (hand.hasClass("hand007") || toast.hasClass("toast007")) {
+            window.location.href = "yaoqinDetail.html";
+        }
+    });
+    $(function () {
+        localStorage.clear();
+        var current = {title: "邀请好友企业", total: "6", current: "4"};
+        bridge.startPager(current);
+    });
+</script>
+</body>
+</html>

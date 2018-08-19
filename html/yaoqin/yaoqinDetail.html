@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/yaoqin.css">
+</head>
+<body>
+<div class="yaoqin">
+    <img class="pager" src="../../images/yaoqin/yaoqin005.png"/>
+    <a id="hand" class="hand008"></a>
+    <p id="toast" class="toast008">输入邀请信息</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    hand.on('click', function () {
+        if (hand.hasClass("hand008") || toast.hasClass("toast008")) {
+            hand.removeClass("hand008");
+            toast.removeClass("toast008");
+            hand.addClass("hand009");
+            toast.addClass("toast009");
+            toast.text("点击”确认发送“发起邀请，可采用默认语句。");
+        } else if (hand.hasClass("hand009") || toast.hasClass("toast009")) {
+            window.location.href = "yaoqinApply.html";
+        }
+    });
+    $(function () {
+        localStorage.clear();
+        var current = {title: "邀请好友企业", total: "6", current: "5"};
+        bridge.startPager(current);
+    });
+</script>
+</body>
+</html>

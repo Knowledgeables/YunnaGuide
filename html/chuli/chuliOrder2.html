@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/common.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/chuli.css">
+</head>
+<body>
+<div class="chuli">
+    <img id="pager" class="pager" src="../../images/chuli/chuli002.png"/>
+    <a id="hand" class="hand0017"></a>
+    <p id="toast" class="toast0017">点击“记录”切换标签页。</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    var pager = $("#pager");
+    var isFirst = true;
+    var h = $(pager).height() - $(window).height();
+    hand.click(function () {
+        localStorage.setItem("last", 'faqiOrder');
+        if (hand.hasClass("hand0017") || toast.hasClass("toast0017")) {
+            hand.removeClass("hand0017");
+            toast.removeClass("toast0017");
+            pager.attr("src", "../../images/chuli/chuli006.png");
+            hand.addClass("hand0018");
+            toast.addClass("toast0018");
+            toast.text("这里就是刚刚保存为记录的处理结果。");
+        } else if (hand.hasClass("hand0018") || toast.hasClass("toast0018")) {
+            hand.removeClass("hand0018");
+            toast.removeClass("toast0018");
+            hand.addClass("hand0015");
+            toast.addClass("toast0015");
+            toast.text("现在试试另外一种处理方式，点击“操作”继续工作。");
+        } else if (hand.hasClass("hand0015") || toast.hasClass("toast0015")) {
+            window.location.href = "chuli2Option.html";
+            // remove(hand, toast);
+        }
+    });
+    var current = {title: "学习处理工单", total: "12", current: "6"};
+    $(function () {
+        localStorage.clear();
+        bridge.startPager(current);
+    });
+
+</script>
+</body>
+</html>

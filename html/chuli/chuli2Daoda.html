@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/chuli.css">
+</head>
+<body>
+<div class="chuli">
+    <img id="pager" class="pager" src="../../images/chuli/chuli0011.png"/>
+    <a id="hand" class="hand0023"></a>
+    <p id="toast" class="toast0023">这个时候挂起，启动时需要再出发，现在点击“到达”确认位置。</p>
+</div>
+
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    var pager = $("#pager");
+    var isFirst = true;
+    var h = $(pager).height() - $(window).height();
+    hand.click(function () {
+        localStorage.setItem("last", 'faqiOrder');
+        if (hand.hasClass("hand0023") || toast.hasClass("toast0023")) {
+            localStorage.clear();
+            localStorage.setItem("last", "chuli2Daoda");
+            window.history.back();
+        }
+    });
+    var current = {title: "学习处理工单", total: "12", current: "10"};
+    $(function () {
+        localStorage.clear();
+        bridge.startPager(current);
+    });
+</script>
+</body>
+</html>

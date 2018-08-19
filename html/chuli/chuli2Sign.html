@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/chuli.css">
+</head>
+<body>
+<div class="chuli">
+    <img id="pager" class="pager" src="../../images/chuli/chuli0013.png"/>
+    <a id="hand" class="hand0029"></a>
+    <p id="toast" class="toast0029">此处可要求业主进行签字，作为现场处理完成的依据之一。</p>
+</div>
+
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    var pager = $("#pager");
+    var isFirst = true;
+    var h = $(pager).height() - $(window).height();
+    hand.click(function () {
+        localStorage.setItem("last", 'faqiOrder');
+        if (hand.hasClass("hand0029") || toast.hasClass("toast0029")) {
+            hand.removeClass("hand0029");
+            toast.removeClass("toast0029");
+            hand.addClass("hand0030");
+            toast.addClass("toast0030");
+            toast.text("点击”确定上传“，之后可在记录中查看。");
+        } else if (hand.hasClass("hand0030") || toast.hasClass("toast0030")) {
+            var current = {
+                currentTag: "学习处理工单",
+                title1: "恭喜您",
+                title2: "处理工单成功！",
+                message: "您想要马上开始确认吗？",
+                nextUrl: "html/queren/querenIndex.html"
+            };
+            bridge.finishCurrentPager(current);
+        }
+    });
+    var current = {title: "学习处理工单", total: "12", current: "12"};
+    $(function () {
+        localStorage.clear();
+        bridge.startPager(current);
+    });
+</script>
+</body>
+</html>

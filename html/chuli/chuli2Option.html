@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/chuli.css">
+</head>
+<body>
+<div class="chuli">
+    <img id="pager" class="pager" src="../../images/chuli/chuli007.png"/>
+    <a id="hand" class="hand0019"></a>
+    <p id="toast" class="toast0019">点击“去现场”调整为现场处理此工单。</p>
+</div>
+
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    var pager = $("#pager");
+    var isFirst = true;
+    var h = $(pager).height() - $(window).height();
+    hand.click(function () {
+        localStorage.setItem("last", 'faqiOrder');
+        if (hand.hasClass("hand0019") || toast.hasClass("toast0019")) {
+            window.location.href = "chuli2Xianchang.html";
+        } else if (hand.hasClass("hand0022") || toast.hasClass("toast0022")) {
+            window.location.href = "chuli2Chufa.html";
+        } else if (hand.hasClass("hand0024") || toast.hasClass("toast0024")) {
+            window.location.href = "chuli2Daoda.html";
+        } else if (hand.hasClass("hand0025") || toast.hasClass("toast0025")) {
+            window.location.href = "chuli2Chuli.html";
+        }
+    });
+    $(function () {
+        // do something
+        var current = {title: "学习处理工单", total: "12", current: "7"};
+        bridge.startPager(current);
+        var last = localStorage.getItem("last");
+        switch (last) {
+            case 'chuli2Xianchang':
+                localStorage.clear();
+                hand.removeClass("hand0019");
+                toast.removeClass("toast0019");
+                pager.attr("src", "../../images/chuli/chuli0081.png");
+                hand.addClass("hand0022");
+                toast.addClass("toast0022");
+                toast.text("出发之前还能切换成非现场处理，现在点击“出发”跳转界面。");
+                current = {title: "学习处理工单", total: "12", current: "8"};
+                bridge.startPager(current);
+                break;
+            case 'chuli2Chufa':
+                localStorage.clear();
+                hand.removeClass("hand0019");
+                toast.removeClass("toast0019");
+                pager.attr("src", "../../images/chuli/chuli0082.png");
+                hand.addClass("hand0024");
+                toast.addClass("toast0024");
+                toast.text("这个时候挂起，启动时需要再出发，现在点击“到达”确认位置。");
+                current = {title: "学习处理工单", total: "12", current: "9"};
+                bridge.startPager(current);
+                break;
+            case 'chuli2Daoda':
+                localStorage.clear();
+                hand.removeClass("hand0019");
+                toast.removeClass("toast0019");
+                pager.attr("src", "../../images/chuli/chuli0083.png");
+                hand.addClass("hand0025");
+                toast.addClass("toast0025");
+                toast.text("到达现场后，点击“处理”开始工作。");
+                current = {title: "学习处理工单", total: "12", current: "10"};
+                bridge.startPager(current);
+                break;
+            default:
+                break;
+        }
+    });
+
+</script>
+</body>
+</html>

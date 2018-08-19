@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/beijian.css">
+</head>
+<body>
+<div class="beijian">
+    <img class="pager" src="../../images/beijian/beijian005.png"/>
+    <a id="hand" class="hand006"></a>
+    <p id="toast" class="toast006">点击"备件库查询"开始查询。</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    hand.on('click', function () {
+        if (hand.hasClass("hand006") || toast.hasClass("hand006")) {
+            window.location.href = "beijianDetail.html";
+        }
+    });
+    var current = {title: "备件是什么", total: "5", current: "4"};
+    $(function () {
+        localStorage.clear();
+        bridge.startPager(current);
+    });
+</script>
+</body>
+</html>

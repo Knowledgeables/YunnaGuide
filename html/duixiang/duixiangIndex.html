@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/duixiang.css">
+</head>
+<body>
+<div class="duixiang">
+    <img class="pager" src="../../images/duixiang/duixiang001.png"/>
+    <a id="hand" class="hand001"></a>
+    <p id="toast" class="toast001">在发起工单时需要选择出问题的对象，在此之前需要先添加对象（只能在网页端操作），这里先了解下对象的信息。</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    hand.on('click', function () {
+        if (hand.hasClass("hand001") || toast.hasClass("toast001")) {
+            window.location.href = "duixiangHome.html";
+        }
+    });
+    var current = {title: "对象是什么", total: "2", current: "1"};
+    $(function () {
+        localStorage.clear();
+        bridge.startPager(current);
+    });
+</script>
+</body>
+</html>

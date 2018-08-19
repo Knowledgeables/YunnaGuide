@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/sla.css">
+</head>
+<body>
+<div class="sla">
+    <img id="pager" class="pager" src="../../images/sla/sla003.png"/>
+    <a id="hand" class="hand004"></a>
+    <p id="toast" class="toast004">向下滚动</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    var pager = $("#pager");
+    var isFirst = true;
+    var h = $(pager).height() - $(window).height();
+    hand.on('click', function () {
+        if (hand.hasClass("hand005") || toast.hasClass("toast005")) {
+            hand.removeClass("hand005");
+            toast.removeClass("toast005");
+            hand.addClass("hand006");
+            toast.addClass("toast006");
+            toast.text("故障等级决定了此条工单要求处理完成的SLA时间，这里套用默认的，也可随意修改");
+        } else if (hand.hasClass("hand006") || toast.hasClass("toast006")) {
+            localStorage.setItem("last", "slaOrder");
+            window.history.back()
+        }
+    });
+    $(function () {
+        localStorage.clear();
+        var current = {title: "什么是SLA模板", total: "3", current: "3"};
+        bridge.startPager(current);
+        hand.css("background-image", "url(../../images/slide.gif)");
+    });
+    // 向下滚动到据顶部超过1000px时，回到顶部
+    $(window).scroll(h, function (event) {
+        var $me = $(this);
+        if ($me.scrollTop() >= event.data / 3 * 2 && isFirst) {
+            hand.removeClass("hand004");
+            toast.removeClass("toast004");
+            hand.css("background-image", "url(../../images/pointer.gif)");
+            hand.addClass("hand005");
+            toast.addClass("toast005");
+            toast.text("故障等级决定了此条工单要求处理完成的SLA时间（可在网页端进行设置，并被项目调用）");
+            isFirst = false;
+        }
+    });
+
+</script>
+</body>
+</html>

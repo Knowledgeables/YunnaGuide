@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/chuli.css">
+</head>
+<body>
+<div class="chuli">
+    <img id="pager" class="pager" src="../../images/chuli/chuli008.png"/>
+    <a id="hand" class="hand0020"></a>
+    <p id="toast" class="toast0020">滑动选择时间，不能选择过去时间。</p>
+</div>
+
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    var pager = $("#pager");
+    var isFirst = true;
+    var h = $(pager).height() - $(window).height();
+    hand.click(function () {
+        localStorage.setItem("last", 'faqiOrder');
+        if (hand.hasClass("hand0020") || toast.hasClass("toast0020")) {
+            hand.removeClass("hand0020");
+            toast.removeClass("toast0020");
+            hand.addClass("hand0021");
+            toast.addClass("toast0021");
+            toast.text("点击“确定”提交预计到场的时间。");
+        } else if (hand.hasClass("hand0021") || toast.hasClass("toast0021")) {
+            localStorage.clear();
+            localStorage.setItem("last", "chuli2Xianchang");
+            window.history.back();
+        }
+    });
+    var current = {title: "学习处理工单", total: "12", current: "8"};
+    $(function () {
+        localStorage.clear();
+        bridge.startPager(current);
+    });
+</script>
+</body>
+</html>

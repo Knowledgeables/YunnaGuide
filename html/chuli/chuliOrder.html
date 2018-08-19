@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/common.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/chuli.css">
+</head>
+<body>
+<div class="chuli">
+    <img id="pager" class="pager" src="../../images/chuli/chuli002.png"/>
+    <a id="hand" class="hand003"></a>
+    <p id="toast" class="toast003">标签为"处理中"</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    var pager = $("#pager");
+    var isFirst = true;
+    var h = $(pager).height() - $(window).height();
+    hand.click(function () {
+        localStorage.setItem("last", 'faqiOrder');
+        if (hand.hasClass("hand003") || toast.hasClass("toast003")) {
+            hand.removeClass("hand003");
+            toast.removeClass("toast003");
+            hand.addClass("hand0041");
+            toast.addClass("toast0041");
+            toast.text("我们看看请求人要求完成的时间和对于问题的描述，再开始处理");
+        } else if (hand.hasClass("hand0041") || toast.hasClass("toast0041")) {
+            hand.removeClass("hand0041");
+            toast.removeClass("toast0041");
+            hand.addClass("hand0042");
+            toast.addClass("toast0042");
+            toast.text("我们看看请求人要求完成的时间和对于问题的描述，再开始处理");
+        }
+        else if (hand.hasClass("hand0042") || toast.hasClass("toast0042")) {
+            hand.removeClass("hand0042");
+            toast.removeClass("toast0042");
+            hand.addClass("hand0043");
+            toast.addClass("toast0043");
+            toast.text("我们看看请求人要求完成的时间和对于问题的描述，再开始处理");
+        }
+        else if (hand.hasClass("hand0043") || toast.hasClass("toast0043")) {
+            hand.removeClass("hand0043");
+            toast.removeClass("toast0043");
+            hand.addClass("hand004");
+            toast.addClass("toast004");
+            toast.text("点击“操作”");
+        } else if (hand.hasClass("hand004") || toast.hasClass("toast004")) {
+            window.location.href = "chuliOption.html";
+            // remove(hand, toast);
+        }
+    });
+    var current = {title: "学习处理工单", total: "12", current: "2"};
+    $(function () {
+        localStorage.clear();
+        bridge.startPager(current);
+    });
+
+
+</script>
+</body>
+</html>

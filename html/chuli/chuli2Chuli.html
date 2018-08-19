@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/chuli.css">
+</head>
+<body>
+<div class="chuli">
+    <img id="pager" class="pager" src="../../images/chuli/chuli004.png"/>
+    <a id="hand" class="hand0026"></a>
+    <p id="toast" class="toast0026">在此输入处理结果，我们先预设为“我已在现场解决，请尽快确认。</p>
+</div>
+
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    var pager = $("#pager");
+    var isFirst = true;
+    var h = $(pager).height() - $(window).height();
+    hand.click(function () {
+        localStorage.setItem("last", 'faqiOrder');
+        if (hand.hasClass("hand0026") || toast.hasClass("toast0026")) {
+            hand.removeClass("hand0026");
+            toast.removeClass("toast0026");
+            hand.addClass("hand0027");
+            toast.addClass("toast0027");
+            toast.text("点击“操作”继续工作。");
+        } else if (hand.hasClass("hand0027") || toast.hasClass("toast0027\"")) {
+            hand.removeClass("hand0027");
+            toast.removeClass("toast0027");
+            pager.attr("src", "../../images/chuli/chuli0012.png");
+            hand.addClass("hand0028");
+            toast.addClass("toast0028");
+            toast.text("点击“处理完成”确认此工单已经解决。");
+        }
+        else if (hand.hasClass("hand0028") || toast.hasClass("toast0028")) {
+            window.location.href = "chuli2Sign.html";
+        }
+    });
+    var current = {title: "学习处理工单", total: "12", current: "11"};
+    $(function () {
+        localStorage.clear();
+        bridge.startPager(current);
+    });
+</script>
+</body>
+</html>

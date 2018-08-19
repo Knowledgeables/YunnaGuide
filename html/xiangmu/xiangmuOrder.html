@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/xiangmu.css">
+</head>
+<body>
+<div class="xiangmu">
+    <img id="pager" class="pager" src="../../images/xiangmu/xiangmu003.png"/>
+    <a id="hand" class="hand004"></a>
+    <p id="toast" class="toast004">先点击选择发起请求的企业</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    var pager = $("#pager");
+    var isFirst = true;
+    var h = $(pager).height() - $(window).height();
+    hand.click(function () {
+        localStorage.setItem("last", 'xiangmuOrder');
+        if (hand.hasClass("hand004") || toast.hasClass("toast004")) {
+            hand.removeClass("hand004");
+            toast.removeClass("toast004");
+            hand.addClass("hand0041");
+            toast.addClass("toast0041");
+            toast.text("在发工单时选择的项目是服务商是以业主为甲方创建的（在网页端操作），业主没有此选项");
+        } else if (hand.hasClass("hand0041") || toast.hasClass("toast0041")) {
+            hand.removeClass("hand0041");
+            toast.removeClass("toast0041");
+            hand.addClass("hand0042");
+            toast.addClass("toast0042");
+            toast.text("项目中的对象，必须在网页端上创建项目后进行关联（该对象所属业主必须与项目的甲方业主保持一致）");
+        } else if (hand.hasClass("hand0042") || toast.hasClass("toast0042")) {
+            setTimeout(function () {
+                var current = {
+                    currentTag: "什么是项目",
+                    title1: "恭喜您",
+                    title2: "项目介绍结束！",
+                    message: "请回到引导界面，前往下一个教学。",
+                    nextUrl: ""
+                };
+                bridge.finishCurrentPager(current);
+            }, 500);
+        }
+    });
+    $(function () {
+        localStorage.clear();
+        var current = {title: "什么是项目", total: "2", current: "2"};
+        bridge.startPager(current);
+    });
+
+</script>
+</body>
+</html>

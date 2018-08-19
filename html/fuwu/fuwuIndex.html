@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/fuwu.css">
+</head>
+<body>
+<div class="fuwu">
+    <img class="pager" src="../../images/fuwu/fuwu001.png"/>
+    <a id="hand" class="hand001"></a>
+    <p id="toast" class="toast001">您的当前公司，点击在同类型（如业主）企业间切换。</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    hand.on('click', function () {
+        //顶部点击手
+        if (hand.hasClass("hand001") || toast.hasClass("toast001")) {
+            hand.removeClass("hand001");
+            toast.removeClass("toast001");
+            hand.addClass("hand002");
+            toast.addClass("toast002");
+            toast.text("此栏是当前需要处理的工作，可切换标签页查看其他分类");
+            //切换tab的点击手
+            hand.on('click', function () {
+                if (hand.hasClass("hand002") || toast.hasClass("toast002")) {
+                    hand.removeClass("hand002");
+                    toast.removeClass("toast002");
+                    hand.addClass("hand003");
+                    toast.addClass("toast003");
+                    toast.text("点击该按钮发起工单");
+                    // pager.attr("src","./images/fuwu/fuwu02.png");
+                    //发起工单点击手
+                    hand.on('click', function () {
+                        if (hand.hasClass("hand003") || toast.hasClass("toast003")) {
+                            localStorage.setItem("last", 'fuwu');
+                            window.location.href = "fuwuOrder.html";
+                        }
+                    })
+                }
+            })
+        }
+    });
+    $(function () {
+        localStorage.clear();
+        var current = {title: "学习发起工单", total: "2", current: "1"};
+        bridge.startPager(current);
+    });
+
+
+</script>
+</body>
+</html>

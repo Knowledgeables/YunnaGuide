@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/qiye.css">
+</head>
+<body>
+<div class="qiye">
+    <img id="pager" class="pager" src="../../images/qiye/qiye001.png"/>
+    <a id="hand" class="hand001"></a>
+    <p id="toast" class="toast001">要在发起工单中选择业主和服务商，需要双方都注册上线；并且需要双方先建立好友企业关系，为此，双方公司都需要通过企业认证。</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    var pager = $("#pager");
+    hand.on('click', function () {
+        if (hand.hasClass("hand001") || toast.hasClass("toast001")) {
+            hand.removeClass("hand001");
+            toast.removeClass("toast001");
+            hand.addClass("hand002");
+            toast.addClass("toast002");
+            toast.text("要在发起工单中选择业主和服务商，需要双方都注册上线；并且需要双方先建立好友企业关系，为此，双方公司都需要通过企业认证。");
+        } else if (hand.hasClass("hand002") || toast.hasClass("toast002")) {
+            window.location.href = "qiyeHome.html";
+        }
+    });
+    $(function () {
+        localStorage.clear();
+        var current = {title: "通过企业认证", total: "5", current: "1"};
+        bridge.startPager(current);
+    });
+</script>
+</body>
+</html>

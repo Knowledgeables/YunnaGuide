@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/yuangong.css">
+</head>
+<body>
+<div class="yuangong">
+    <img class="pager" src="../../images/yuangong/yuangong003.png"/>
+    <a id="hand" class="hand004"></a>
+    <p id="toast" class="toast004">在这里点击“员工姓名”并输入正确的名称</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    hand.on('click', function () {
+        if (hand.hasClass("hand004") || toast.hasClass("toast004")) {
+            hand.removeClass("hand004");
+            toast.removeClass("toast004");
+            hand.addClass("hand005");
+            toast.addClass("toast005");
+            toast.text("在这里点击“登陆手机”并输入，这会作为登录账号来使用。");
+        } else if (hand.hasClass("hand005") || toast.hasClass("toast005")) {
+            hand.removeClass("hand005");
+            toast.removeClass("toast005");
+            hand.addClass("hand006");
+            toast.addClass("toast006");
+            toast.text("在这里点击“所属部门”进行选择（单选），增加或编辑部门需要在网页端操作。");
+        }
+        else if (hand.hasClass("hand006") || toast.hasClass("toast006")) {
+            window.location.href = "yuangongDemartment.html";
+        } else if (hand.hasClass("hand008") || toast.hasClass("toast008")) {
+            window.location.href = "yuangongFunction.html";
+        } else if (hand.hasClass("hand0010") || toast.hasClass("toast0010")) {
+            window.location.href = "yuangongRole.html";
+        }
+        else if (hand.hasClass("hand0012") || toast.hasClass("toast0012")) {
+            hand.removeClass("hand0012");
+            toast.removeClass("toast0012");
+            hand.addClass("hand0013");
+            toast.addClass("toast0013");
+            toast.text("必填信息都确认后，点击“确认添加”添加员工。");
+        } else if (hand.hasClass("hand0013") || toast.hasClass("toast0013")) {
+            var current = {
+                currentTag: "添加工作人员",
+                title1: "恭喜您",
+                title2: "添加员工成功！",
+                message: "请回到引导界面，前往下一个教学。",
+                nextUrl: ""
+            };
+            bridge.finishCurrentPager(current);
+        }
+    });
+    $(function () {
+        // do something
+        var last = localStorage.getItem("last");
+        var current = {title: "邀请好友企业", total: "6", current: "3"};
+        bridge.startPager(current);
+        switch (last) {
+            case 'yuangongDemartment':
+                localStorage.clear();
+                hand.removeClass("hand004");
+                toast.removeClass("toast004");
+                hand.addClass("hand008");
+                toast.addClass("toast008");
+                toast.text("在这里点击“职能分组”进行选择（可多选），增加或编辑职能需要在网页端操作");
+                current = {title: "邀请好友企业", total: "6", current: "4"};
+                bridge.startPager(current);
+                break;
+            case 'yuangongFunction':
+                localStorage.clear();
+                hand.removeClass("hand004");
+                toast.removeClass("toast004");
+                hand.addClass("hand0010");
+                toast.addClass("toast0010");
+                toast.text("在这里点击“关联角色”进行单选，角色默认有六个，不支持编辑和新增，具体权限可在网页端查看。");
+                current = {title: "邀请好友企业", total: "6", current: "5"};
+                bridge.startPager(current);
+                break;
+            case 'yuangongRole':
+                localStorage.clear();
+                hand.removeClass("hand004");
+                toast.removeClass("toast004");
+                hand.addClass("hand0012");
+                toast.addClass("toast0012");
+                toast.text("对外联系人是指本次添加的员工是否能被好友企业查看或在发工单时选中。");
+                current = {title: "添加工作人员", total: "6", current: "6"};
+                bridge.startPager(current);
+                break;
+            default:
+                break;
+        }
+    });
+
+
+</script>
+</body>
+</html>

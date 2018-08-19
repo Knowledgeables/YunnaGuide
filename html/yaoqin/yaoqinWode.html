@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/yaoqin.css">
+</head>
+<body>
+<div class="yaoqin">
+    <img class="pager" src="../../images/yaoqin/yaoqin002.png"/>
+    <a id="hand" class="hand002"></a>
+    <p id="toast" class="toast002">点击“邀请企业”跳转界面</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    hand.on('click', function () {
+        if (hand.hasClass("hand002") || toast.hasClass("toast002")) {
+            window.location.href = "yaoqinList.html";
+        }
+    });
+    $(function () {
+        localStorage.clear();
+        var current = {title: "邀请好友企业", total: "6", current: "2"};
+        bridge.startPager(current);
+    });
+
+
+</script>
+</body>
+</html>

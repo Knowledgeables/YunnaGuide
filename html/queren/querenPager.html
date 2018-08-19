@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/queren.css">
+</head>
+<body>
+<div class="queren">
+    <img id="pager" class="pager" src="../../images/queren/queren005.png"/>
+    <a id="hand" class="hand007"></a>
+    <p id="toast" class="toast007">如果没解决，可选择转回，这里选择“确认解决”。</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    var pager = $("#pager");
+    hand.on('click', function () {
+        if (hand.hasClass("hand007") || toast.hasClass("toast007")) {
+            hand.removeClass("hand007");
+            toast.removeClass("toast007");
+            hand.addClass("hand008");
+            toast.addClass("toast008");
+            toast.text("选择评分。");
+        } else if (hand.hasClass("hand008") || toast.hasClass("toast008")) {
+            hand.removeClass("hand008");
+            toast.removeClass("toast008");
+            hand.addClass("hand009");
+            toast.addClass("toast009");
+            toast.text("输入评价内容。");
+        } else if (hand.hasClass("hand009") || toast.hasClass("toast009")) {
+            hand.removeClass("hand009");
+            toast.removeClass("toast009");
+            hand.addClass("hand0010");
+            toast.addClass("toast0010");
+            toast.text("内容都确认后，点击“确定”完成评价打分。");
+        } else if (hand.hasClass("hand0010") || toast.hasClass("toast0010")) {
+            var current = {
+                currentTag: "学习确认工单",
+                title1: "恭喜您",
+                title2: "工单流程结束！",
+                message: "请回到引导界面，前往下一个教学。",
+                nextUrl: ""
+            };
+            bridge.finishCurrentPager(current);
+        }
+    });
+    $(function () {
+        localStorage.clear();
+        var current = {title: "学习确认工单", total: "3", current: "3"};
+        bridge.startPager(current);
+    });
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+
+.zhipai {
+    width: 90%;
+    height: 90%;
+    background-size: 100% 100%;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+.zhipai .pager {
+    width: 100%;
+    height: 100%;
+}
+
+.gone {
+    visibility: hidden;
+}
+
+.hand001 {
+    left: 3rem;
+    top: 2rem;
+}
+
+.toast001 {
+    left: 2.5rem;
+    top: 4rem;
+
+}
+
+.hand002 {
+    left: 3rem;
+    top: 7.5rem;
+}
+
+.toast002 {
+    left: 1rem;
+    top: 6rem;
+}
+
+.hand003 {
+    left: 2.5rem;
+    top: 9rem;
+}
+
+.toast003 {
+    left: 2.5rem;
+    top: 7rem;
+}
+
+.hand004 {
+    left: 3rem;
+    top: 14.5rem;
+    visibility: visible;
+}
+
+.toast004 {
+    left: 1rem;
+    top: 12rem;
+}
+
+.hand005 {
+    left: 3rem;
+    top: 15.3rem;
+    visibility: visible;
+}
+
+.toast005 {
+    left: 1.5rem;
+    top: 14rem;
+}
+
+.hand006 {
+    left: 3rem;
+    top: 9rem;
+    visibility: visible;
+}
+
+.toast006 {
+    left: 1rem;
+    top: 7.5rem;
+}
+
+.hand007 {
+    left: 3rem;
+    top: 0.9rem;
+    visibility: visible;
+}
+
+.toast007 {
+    left: 1.5rem;
+    top: 3rem;
+}
+
+.hand008 {
+    left: 3rem;
+    top: 1.5rem;
+    visibility: visible;
+}
+
+.toast008 {
+    left: 2.5rem;
+    top: 4rem;
+}
+
+.hand009 {
+    left: 3rem;
+    top: 5rem;
+    visibility: visible;
+}
+
+.toast009 {
+    left: 1.5rem;
+    top: 4rem;
+}
+
+.hand0010 {
+    left: 3rem;
+    top: 2rem;
+    visibility: visible;
+}
+
+.toast0010 {
+    left: 1.5rem;
+    top: 4rem;
+}
+
+.hand0011 {
+    left: 3rem;
+    top: 10.3rem;
+    visibility: visible;
+}
+
+.toast0011 {
+    left: 1.5rem;
+    top: 8rem;
+}

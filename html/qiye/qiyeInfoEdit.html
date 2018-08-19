@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/qiye.css">
+</head>
+<body>
+<div class="qiye">
+    <img id="pager" class="pager" src="../../images/qiye/qiye005.png"/>
+    <a id="hand" class="hand007"></a>
+    <p id="toast" class="toast007">公司名字已确认、在这里点击“证件类型”进行选择。</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    var pager = $("#pager");
+    hand.on('click', function () {
+            if (hand.hasClass("hand007") || toast.hasClass("toast007")) {
+                hand.removeClass("hand007");
+                toast.removeClass("toast007");
+                hand.addClass("hand008");
+                toast.addClass("toast008");
+                toast.text("在这里点击输入正确的“证件号码”。");
+            } else if (hand.hasClass("hand008") || toast.hasClass("toast008")) {
+                hand.removeClass("hand008");
+                toast.removeClass("toast008");
+                hand.addClass("hand009");
+                toast.addClass("toast009");
+                toast.text("在这里点击上传相关的“证件图片”。");
+            } else if (hand.hasClass("hand009") || toast.hasClass("toast009")) {
+                hand.removeClass("hand009");
+                toast.removeClass("toast009");
+                hand.addClass("hand0010");
+                toast.addClass("toast0010");
+                toast.text("在这里点击输入对应的“注册地址”");
+            } else if (hand.hasClass("hand0010") || toast.hasClass("toast0010")) {
+                hand.removeClass("hand0010");
+                toast.removeClass("toast0010");
+                hand.addClass("hand0011");
+                toast.addClass("toast0011");
+                toast.text("必填信息都确认后，点击“提交”并“确定”给工作人员审核。");
+            }
+            else if (hand.hasClass("hand0011") || toast.hasClass("toast0011")) {
+                window.location.href = "qiyeInfoDone.html";
+            }
+        }
+    );
+    $(function () {
+        localStorage.clear();
+        var current = {title: "通过企业认证", total: "5", current: "4"};
+        bridge.startPager(current);
+    });
+
+
+</script>
+</body>
+</html>

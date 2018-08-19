@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+    <title>云呐IT服务</title>
+    <script src="../../js/jquery-3.1.1.min.js "></script>
+    <script src="../../js/rem.js "></script>
+    <script src="../../js/bridge.js"></script>
+    <link rel="stylesheet" href="../../css/common.css">
+    <link rel="stylesheet" href="../../css/yuangong.css">
+</head>
+<body>
+<div class="yuangong">
+    <img class="pager" src="../../images/yuangong/yuangong002.png"/>
+    <a id="hand" class="hand002"></a>
+    <p id="toast" class="toast002">公司的员工都在下面罗列，您也可以按照上面的方式查看</p>
+</div>
+<script>
+    var hand = $("#hand");
+    var toast = $("#toast");
+    hand.on('click', function () {
+        if (hand.hasClass("hand002") || toast.hasClass("toast002")) {
+            hand.removeClass("hand002");
+            toast.removeClass("toast002");
+            hand.addClass("hand003");
+            toast.addClass("toast003");
+            toast.text("点击“+“号按钮添加新员工");
+        } else if (hand.hasClass("hand003") || toast.hasClass("toast003")) {
+            window.location.href = "yuangongAdd.html";
+        }
+    });
+    $(function () {
+        localStorage.clear();
+        var current = {title: "添加工作人员", total: "6", current: "2"};
+        bridge.startPager(current);
+    });
+
+
+</script>
+</body>
+</html>
