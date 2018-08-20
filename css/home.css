@@ -1,0 +1,17 @@
+.home {
+    width: 90%;
+    height: 90%;
+    background-size: 100% 100%;
+    position: relative;
+    margin: 0 auto;
+    padding: 0;
+    text-align: center;
+}
+
+li {
+    height: .6rem;
+    font-size: .5rem;
+    text-align: left;
+    color: white;
+
+}
