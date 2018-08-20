@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="../js/bridge.js"></script>
+    <script src="../js/common.js"></script>
+    <script src="../js/jquery-3.1.1.min.js"></script>
+    <script src="../js/rem.js"></script>
+    <link rel="stylesheet" href="../css/home.css">
+    <link rel="stylesheet" href="../css/common.css">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
+</head>
+<body>
+<div class="home">
+    <ul>
+        <li id="bejian">学习备件申请</li>
+        <li id="gongdan">学习处理工单</li>
+        <li id="duixiang">学习对象</li>
+        <li id="faqi">学习发起工单</li>
+        <li id="fuwu">学习服务</li>
+        <li id="jieshou">学习接受工单</li>
+        <li id="qiye">学习企业</li>
+        <li id="queren">学习确认工单</li>
+        <li id="sla">学习sla报表</li>
+        <li id="yaoqing">学习邀请企业</li>
+        <li id="yuangong">学习添加员工</li>
+        <li id="zhipai">学习工单指派</li>
+    </ul>
+    <script>
+        $("li").on("click", function (e) {
+            switch ($(this).attr("id").toString()) {
+                case "bejian":
+                    window.location.href = "../html/beijian/beijianIndex.html";
+                    break;
+                case "gongdan":
+                    window.location.href = "../html/chuli/chuliIndex.html";
+                    break;
+                case "duixiang":
+                    window.location.href = "../html/duixiang/duixiangIndex.html";
+                    break;
+                case "faqi":
+                    window.location.href = "../html/faqi/faqiIndex.html";
+                    break;
+                case "fuwu":
+                    window.location.href = "../html/fuwu/fuwuIndex.html";
+                    break;
+                case "jieshou":
+                    window.location.href = "../html/jieshou/jieshouIndex.html";
+                    break;
+                case "qiye":
+                    window.location.href = "../html/qiye/qiyeIndex.html";
+                    break;
+                case  "queren":
+                    window.location.href = "../html/queren/querenIndex.html";
+                    break;
+                case "sla":
+                    window.location.href = "../html/sla/slaIndex.html";
+                    break;
+                case "xiangmu":
+                    window.location.href = "../html/xiangmu/xiangmuIndex.html";
+                    break;
+                case "yaoqing":
+                    window.location.href = "../html/yaoqin/yaoqinIndex.html";
+                    break;
+                case "yuangong":
+                    window.location.href = "../html/yuangong/yuangongIndex.html";
+                    break;
+                case "zhipai":
+                    window.location.href = "../html/yaoqin/yaoqinIndex.html";
+                    break;
+            }
+        })
+
+    </script>
+
+</div>
+</body>
+</html>
