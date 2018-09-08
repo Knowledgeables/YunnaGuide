@@ -1,43 +1,1 @@
-<!doctype html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="viewport"
-          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
-    <title>云呐IT服务</title>
-    <script src="../../js/jquery-3.1.1.min.js "></script>
-    <script src="../../js/rem.js "></script>
-    <script src="../../js/bridge.js"></script>
-    <link rel="stylesheet" href="../../css/common.css">
-    <link rel="stylesheet" href="../../css/beijian.css">
-</head>
-<body>
-<div class="beijian">
-    <img class="pager" src="../../images/beijian/beijian006.png"/>
-    <a id="hand" class="hand008"></a>
-    <p id="toast" class="toast008">除了备件存放于仓库，其他信息与对象相同，在保修期限到期时，都会发起提醒。</p>
-</div>
-<script>
-    var hand = $("#hand");
-    var toast = $("#toast");
-    hand.on('click', function () {
-        if (hand.hasClass("hand008") || toast.hasClass("toast008")) {
-            var current = {
-                currentTag: "备件是什么",
-                title1: "恭喜您",
-                title2: "备件介绍结束！",
-                message: "请回到引导界面，前往下一个教学。",
-                nextUrl: ""
-            };
-            bridge.finishCurrentPager(current);
-        }
-    });
-    var current = {title: "备件是什么", total: "5", current: "5"};
-    $(function () {
-        localStorage.clear();
-        bridge.startPager(current);
-    });
-</script>
-</body>
-</html>
+<!doctype html><html lang="zh"><head>    <meta charset="UTF-8">    <meta name="format-detection" content="telephone=no"/>    <meta name="viewport"          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>    <title>云呐IT服务</title>    <script src="../../js/jquery-3.1.1.min.js "></script>    <script src="../../js/rem.js "></script>    <script src="../../js/bridge.js"></script>    <link rel="stylesheet" href="../../css/common.css">    <link rel="stylesheet" href="../../css/beijian.css"></head><body><div class="beijian">    <img class="pager" src="../../images/beijian/beijian006.png"/>    <a id="hand" class="hand008"></a>    <p id="toast" class="toast008">除了备件存放于仓库，其他信息与资产相同，在保修期限到期时，都会发起提醒。</p></div><script>    var hand = $("#hand");    var toast = $("#toast");    hand.on('click', function () {        if (hand.hasClass("hand008") || toast.hasClass("toast008")) {            var current = {                currentTag: "备件是什么",                title1: "恭喜您",                title2: "备件介绍结束！",                message: "请回到引导界面，前往下一个教学。",                nextUrl: ""            };            bridge.finishCurrentPager(current);        }    });    var current = {title: "备件是什么", total: "5", current: "5"};    $(function () {        localStorage.clear();        bridge.startPager(current);    });</script></body></html>

@@ -1,55 +1,1 @@
-<!doctype html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="viewport"
-          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
-    <title>云呐IT服务</title>
-    <script src="../../js/jquery-3.1.1.min.js "></script>
-    <script src="../../js/rem.js "></script>
-    <script src="../../js/bridge.js"></script>
-    <link rel="stylesheet" href="../../css/common.css">
-    <link rel="stylesheet" href="../../css/chuli.css">
-</head>
-<body>
-<div class="chuli">
-    <img class="pager" src="../../images/chuli/chuli004.png"/>
-    <a id="hand" class="hand0012"></a>
-    <p id="toast" class="toast0012">在处理中可以更换工单的项目和对象。</p>
-</div>
-<script>
-    var hand = $("#hand");
-    var toast = $("#toast");
-    hand.on('click', function () {
-        if (hand.hasClass("hand0012") || toast.hasClass("toast0012")) {
-            hand.removeClass("hand0012");
-            toast.removeClass("toast0012");
-            hand.addClass("hand0013");
-            toast.addClass("toast0013");
-            toast.text("在这里可以填写本次处理的起止时间，这和SLA无关。");
-        } else if (hand.hasClass("hand0013") || toast.hasClass("toast0013")) {
-            hand.removeClass("hand0013");
-            toast.removeClass("toast0013");
-            hand.addClass("hand0014");
-            toast.addClass("toast0014");
-            toast.text("在此输入处理结果，我们先预设为“已经解决了，请尽快确认。");
-        } else if (hand.hasClass("hand0014") || toast.hasClass("toast0014")) {
-            hand.removeClass("hand0014");
-            toast.removeClass("toast0014");
-            hand.addClass("hand0015");
-            toast.addClass("toast0015");
-            toast.text("点击“操作”继续工作。");
-        } else if (hand.hasClass("hand0015") || toast.hasClass("toast0015")) {
-            window.location.href = "chuliPagerOption.html";
-        }
-    });
-    var current = {title: "学习处理工单", total: "12", current: "4"};
-    $(function () {
-        localStorage.clear();
-        bridge.startPager(current);
-    });
-
-</script>
-</body>
-</html>
+<!doctype html><html lang="zh"><head>    <meta charset="UTF-8">    <meta name="format-detection" content="telephone=no"/>    <meta name="viewport"          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>    <title>云呐IT服务</title>    <script src="../../js/jquery-3.1.1.min.js "></script>    <script src="../../js/rem.js "></script>    <script src="../../js/bridge.js"></script>    <link rel="stylesheet" href="../../css/common.css">    <link rel="stylesheet" href="../../css/chuli.css"></head><body><div class="chuli">    <img class="pager" src="../../images/chuli/chuli004.png"/>    <a id="hand" class="hand0012"></a>    <p id="toast" class="toast0012">在处理中可以更换工单的项目和资产。</p></div><script>    var hand = $("#hand");    var toast = $("#toast");    hand.on('click', function () {        if (hand.hasClass("hand0012") || toast.hasClass("toast0012")) {            hand.removeClass("hand0012");            toast.removeClass("toast0012");            hand.addClass("hand0013");            toast.addClass("toast0013");            toast.text("在这里可以填写本次处理的起止时间，这和SLA无关。");        } else if (hand.hasClass("hand0013") || toast.hasClass("toast0013")) {            hand.removeClass("hand0013");            toast.removeClass("toast0013");            hand.addClass("hand0014");            toast.addClass("toast0014");            toast.text("在此输入处理结果，我们先预设为“已经解决了，请尽快确认。");        } else if (hand.hasClass("hand0014") || toast.hasClass("toast0014")) {            hand.removeClass("hand0014");            toast.removeClass("toast0014");            hand.addClass("hand0015");            toast.addClass("toast0015");            toast.text("点击“操作”继续工作。");        } else if (hand.hasClass("hand0015") || toast.hasClass("toast0015")) {            window.location.href = "chuliPagerOption.html";        }    });    var current = {title: "学习处理工单", total: "12", current: "4"};    $(function () {        localStorage.clear();        bridge.startPager(current);    });</script></body></html>

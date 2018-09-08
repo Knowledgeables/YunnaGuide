@@ -1,63 +1,1 @@
-<!doctype html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="format-detection" content="telephone=no"/>
-    <meta name="viewport"
-          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>
-    <title>云呐IT服务</title>
-    <script src="../../js/jquery-3.1.1.min.js "></script>
-    <script src="../../js/rem.js "></script>
-    <script src="../../js/bridge.js"></script>
-    <link rel="stylesheet" href="../../css/common.css">
-    <link rel="stylesheet" href="../../css/fuwu.css">
-</head>
-<body>
-<div class="fuwu">
-    <img id="pager" class="pager" src="../../images/fuwu/fuwu003.png"/>
-    <a id="hand" class="hand004"></a>
-    <p id="toast" class="toast004">先点击选择发起请求的企业</p>
-</div>
-<script>
-    var hand = $("#hand");
-    var toast = $("#toast");
-    var pager = $("#pager");
-    var isFirst = true;
-    var h = $(pager).height() - $(window).height();
-    hand.click(function () {
-        localStorage.setItem("last", 'fuwuOrder');
-        if (hand.hasClass("hand004") || toast.hasClass("toast004")) {
-            hand.removeClass("hand004");
-            toast.removeClass("toast004");
-            hand.addClass("hand0041");
-            toast.addClass("toast0041");
-            toast.text("发起工单时选择项目和对象后，关联的服务（可在网页端设置）就会自动匹配");
-        } else if (hand.hasClass("hand0041") || toast.hasClass("toast0041")) {
-            hand.removeClass("hand0041");
-            toast.removeClass("toast0041");
-            hand.addClass("hand0042");
-            toast.addClass("toast0042");
-            toast.text("关联的行为和服务的期限、次数都是在项目中操作的。（只能在网页端）");
-        } else if (hand.hasClass("hand0042") || toast.hasClass("toast0042")) {
-            setTimeout(function () {
-                var current = {
-                    currentTag: "什么是服务目录",
-                    title1: "恭喜您",
-                    title2: "服务介绍结束！",
-                    message: "请回到引导界面，前往下一个教学。",
-                    nextUrl: ""
-                };
-                bridge.finishCurrentPager(current);
-            }, 500);
-        }
-    });
-    $(function () {
-        localStorage.clear();
-        var current = {title: "学习发起工单", total: "2", current: "2"};
-        bridge.startPager(current);
-    });
-
-
-</script>
-</body>
-</html>
+<!doctype html><html lang="zh"><head>    <meta charset="UTF-8">    <meta name="format-detection" content="telephone=no"/>    <meta name="viewport"          content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=0,user-scalable=no"/>    <title>云呐IT服务</title>    <script src="../../js/jquery-3.1.1.min.js "></script>    <script src="../../js/rem.js "></script>    <script src="../../js/bridge.js"></script>    <link rel="stylesheet" href="../../css/common.css">    <link rel="stylesheet" href="../../css/fuwu.css"></head><body><div class="fuwu">    <img id="pager" class="pager" src="../../images/fuwu/fuwu003.png"/>    <a id="hand" class="hand004"></a>    <p id="toast" class="toast004">先点击选择发起请求的企业</p></div><script>    var hand = $("#hand");    var toast = $("#toast");    var pager = $("#pager");    var isFirst = true;    var h = $(pager).height() - $(window).height();    hand.click(function () {        localStorage.setItem("last", 'fuwuOrder');        if (hand.hasClass("hand004") || toast.hasClass("toast004")) {            hand.removeClass("hand004");            toast.removeClass("toast004");            hand.addClass("hand0041");            toast.addClass("toast0041");            toast.text("发起工单时选择项目和资产后，关联的服务（可在网页端设置）就会自动匹配");        } else if (hand.hasClass("hand0041") || toast.hasClass("toast0041")) {            hand.removeClass("hand0041");            toast.removeClass("toast0041");            hand.addClass("hand0042");            toast.addClass("toast0042");            toast.text("关联的行为和服务的期限、次数都是在项目中操作的。（只能在网页端）");        } else if (hand.hasClass("hand0042") || toast.hasClass("toast0042")) {            setTimeout(function () {                var current = {                    currentTag: "什么是服务目录",                    title1: "恭喜您",                    title2: "服务介绍结束！",                    message: "请回到引导界面，前往下一个教学。",                    nextUrl: ""                };                bridge.finishCurrentPager(current);            }, 500);        }    });    $(function () {        localStorage.clear();        var current = {title: "学习发起工单", total: "2", current: "2"};        bridge.startPager(current);    });</script></body></html>
